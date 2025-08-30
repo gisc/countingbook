@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - id: s01
-        run: echo "Current date and time $(date), $GITHUB_OUTPUT"
+        run: echo "github ${{ github.ref_name }}"
+      - run: echo "before " && ls -l
       - id: s02
-        run: echo "CURR_DATE=$(date)" >> $GITHUB_OUTPUT
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
       - id: s03
-        run: docker build -t countbook-image .
-      - id: s04
-        run: docker run --rm countbook-image
+        run: echo "before " && ls -l
