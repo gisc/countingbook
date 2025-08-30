@@ -1,0 +1,20 @@
+# name
+name: Build and Release
+
+# trigger
+on:
+  push:
+
+# one or more jobs
+jobs:
+  greetings:
+    runs-on: ubuntu-latest
+    steps: 
+      - id: s01
+        run: echo "Current date and time $(date), $GITHUB_OUTPUT"
+      - id: s02
+        run: echo "CURR_DATE=$(date)" >> $GITHUB_OUTPUT
+      - id: s03
+        run: docker build -t countbook-image .
+      - id: s04
+        run: docker run --rm countbook-image

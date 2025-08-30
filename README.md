@@ -1,2 +1,0 @@
-# countingbook
-Counting Book
